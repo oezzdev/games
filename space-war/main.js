@@ -10,6 +10,7 @@ canvas.height = innerHeight;
 
 const scoreElement = document.querySelector('#score');
 const levelElement = document.querySelector('#level');
+const fpsElement = document.querySelector('#fps');
 const bigScoreElement = document.querySelector('#big-score');
 const playButton = document.querySelector('#play-button');
 const modal = document.querySelector('#modal');
@@ -18,6 +19,8 @@ let enemies = [];
 let particles = [];
 const player = new Player(canvas.width / 2, canvas.height / 2, 30, 'tomato');
 let mainAnimation;
+let frames = 0;
+let fps = 0;
 let score = 0;
 let level = 1;
 let lastTime = 0;
@@ -56,14 +59,21 @@ function reset() {
     cancelAnimationFrame(mainAnimation);
     modal.style.display = 'flex';
     enemySpawnRate = minimumEnemySpawnRate;
+    updateBackground(1);
 }
 
 function animate(currentTime) {
+    frames++;
     mainAnimation = requestAnimationFrame(animate);
-    clear();
+    updateBackground();
 
     const deltaTime = currentTime - lastTime;
     lastTime = currentTime;
+    fps = Math.round(1000 / deltaTime);
+    if (frames % 30 === 0)
+    {
+        fpsElement.textContent = `${fps} fps`;
+    }
 
     spawnEnemies(deltaTime);
 
@@ -126,8 +136,8 @@ function updateScore(points) {
     scoreElement.textContent = score;
 }
 
-function clear() {
-    c.fillStyle = 'rgba(0, 0, 0, 0.18)';
+function updateBackground(alpha = 0.18) {
+    c.fillStyle = `rgba(0, 0, 0, ${alpha})`;
     c.fillRect(0, 0, canvas.width, canvas.height);
 }
 
