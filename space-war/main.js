@@ -36,6 +36,8 @@ window.addEventListener('resize', () => {
 });
 
 window.addEventListener('click', (event) => {
+    if (modal.style.display !== 'none') return;
+
     const origin = { x: player.x, y: player.y };
     const distance = { x: event.clientX - origin.x, y: event.clientY - origin.y };
     const newProjectile = Projectile.create(origin, distance);
@@ -134,7 +136,7 @@ function upLevel() {
 function updateScore(points) {
     score += points;
     scoreElement.textContent = score;
-    
+
     if (score / 100 >= level) upLevel();
 }
 
