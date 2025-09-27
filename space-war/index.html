@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="fixed top-5 left-5 text-white font-mono text-lg z-10 flex gap-2">
+        <span>Score:</span>
+        <span id="score">0</span>
+    </div>
+
+    <div id="modal" class="fixed inset-0 flex items-center justify-center">
+        <div class="bg-white max-w-md w-full p-6 text-center rounded-lg shadow-lg">
+            <h1 id="big-score" class="text-4xl font-bold leading-none">0</h1>
+            <p class="text-sm text-gray-700">Puntos</p>
+            <div>
+                <button id="play-button" type="button" class="bg-blue-500 text-white w-full py-3 rounded-full text-sm mt-6 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                    Jugar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <script src="models/entity.js"></script>
+    <script src="models/player.js"></script>
+    <script src="models/projectile.js"></script>
+    <script src="models/enemy.js"></script>
+    <script src="models/particle.js"></script>
+    <script src="factories/enemy-factory.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

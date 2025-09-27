@@ -1,0 +1,15 @@
+# Basic game checklist
+
+- [X] Create a player
+- [X] Shoot projectiles
+- [X] Create enemies
+- [X] Detect collision on enemy - projectile hit
+- [X] Detect collision on enemy - player hit
+- [X] Remove off screen projectiles
+- [X] Colorize game
+- [X] Shrink enemies on hit
+- [X] Create particle explosion on hit
+- [X] Add score
+- [X] Add game over UI
+- [X] Add restart button
+- [X] Add start game button
