@@ -70,8 +70,7 @@ function animate(currentTime) {
     const deltaTime = currentTime - lastTime;
     lastTime = currentTime;
     fps = Math.round(1000 / deltaTime);
-    if (frames % 30 === 0)
-    {
+    if (frames % 30 === 0) {
         fpsElement.textContent = `${fps} fps`;
     }
 
@@ -127,13 +126,16 @@ function animate(currentTime) {
     });
 };
 
+function upLevel() {
+    level++;
+    levelElement.textContent = level;
+}
+
 function updateScore(points) {
     score += points;
-    if (score / 100 >= level) {
-        level++;
-        levelElement.textContent = level;
-    }
     scoreElement.textContent = score;
+    
+    if (score / 100 >= level) upLevel();
 }
 
 function updateBackground(alpha = 0.18) {
