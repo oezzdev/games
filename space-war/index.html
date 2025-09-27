@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Guerra Espacial 🪐</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
     <div class="fixed top-5 left-5 text-white font-mono text-lg z-10 flex gap-2">
-        <span>Score:</span>
+        <span>Puntos:</span>
         <span id="score">0</span>
+    </div>
+
+    <div class="fixed top-10 left-5 text-white font-mono text-lg z-10 flex gap-2">
+        <span>Nivel:</span>
+        <span id="level">0</span>
     </div>
 
     <div id="modal" class="fixed inset-0 flex items-center justify-center">
@@ -28,13 +33,7 @@
     </div>
 
     <canvas id="canvas"></canvas>
-    <script src="models/entity.js"></script>
-    <script src="models/player.js"></script>
-    <script src="models/projectile.js"></script>
-    <script src="models/enemy.js"></script>
-    <script src="models/particle.js"></script>
-    <script src="factories/enemy-factory.js"></script>
-    <script src="main.js"></script>
+    <script src="main.js" type="module"></script>
 </body>
 
 </html>

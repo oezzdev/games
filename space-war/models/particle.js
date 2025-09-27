@@ -1,4 +1,6 @@
-class Particle extends Projectile {
+import Projectile from './projectile.js';
+
+export default class Particle extends Projectile {
     static FRICTION = 0.99;
 
     constructor(x, y, radius, color, velocity) {

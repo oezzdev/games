@@ -1,4 +1,6 @@
-class Enemy extends Entity {
+import Entity from './entity.js';
+
+export default class Enemy extends Entity {
     static MINIMUM_RADIUS = 10;
 
     constructor(x, y, radius, color, velocity) {
@@ -8,11 +10,11 @@ class Enemy extends Entity {
         this.velocity = velocity;
     }
 
-    static create(origin, route, radius) {
+    static create(origin, route, radius, velocityFactor) {
         const angle = Math.atan2(route.y, route.x);
         const velocity = {
-            x: Math.cos(angle),
-            y: Math.sin(angle)
+            x: Math.cos(angle) * velocityFactor,
+            y: Math.sin(angle) * velocityFactor
         };
         return new Enemy(origin.x, origin.y, radius, `hsl(${Math.random() * 360}, 50%, 50%)`, velocity);
     }

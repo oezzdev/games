@@ -1,8 +1,10 @@
-class EnemyFactory {
-    static create(canvas, objective) {
+import Enemy from '../models/enemy.js';
+
+export default class EnemyFactory {
+    static create(canvas, objective, level) {
         const radius = Math.random() * (30 - 10) + 10;
         const side = Math.floor(Math.random() * 4);
-        let x, y;
+        let x, y; 
 
         switch (side) {
             case 0: // Top
@@ -26,6 +28,6 @@ class EnemyFactory {
             x: objective.x - x,
             y: objective.y - y
         };
-        return Enemy.create({ x, y }, route, radius);
+        return Enemy.create({ x, y }, route, radius, level);
     }
 }

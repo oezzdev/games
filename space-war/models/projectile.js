@@ -1,4 +1,6 @@
-class Projectile extends Entity {
+import Entity from './entity.js';
+
+export default class Projectile extends Entity {
     constructor(x, y, radius, color, velocity) {
         super(x, y);
         this.color = color;

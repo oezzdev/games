@@ -1,9 +1,15 @@
+import Player from './models/player.js';
+import Projectile from './models/projectile.js';
+import EnemyFactory from './factories/enemy-factory.js';
+import Particle from './models/particle.js';
+
 const canvas = document.querySelector('#canvas');
 const c = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 const scoreElement = document.querySelector('#score');
+const levelElement = document.querySelector('#level');
 const bigScoreElement = document.querySelector('#big-score');
 const playButton = document.querySelector('#play-button');
 const modal = document.querySelector('#modal');
@@ -13,7 +19,11 @@ let particles = [];
 const player = new Player(canvas.width / 2, canvas.height / 2, 30, 'tomato');
 let mainAnimation;
 let score = 0;
-let enemyInterval;
+let level = 1;
+let lastTime = 0;
+const minimumEnemySpawnRate = 1000;
+let enemySpawnRate = minimumEnemySpawnRate;
+let enemySpwanTimer = enemySpawnRate;
 
 window.addEventListener('resize', () => {
     canvas.width = innerWidth;
@@ -31,9 +41,10 @@ window.addEventListener('click', (event) => {
 
 playButton.addEventListener('click', () => {
     updateScore(-score);
+    level = 1;
+    levelElement.textContent = level;
     modal.style.display = 'none';
-    animate();
-    spawnEnemies();
+    mainAnimation = requestAnimationFrame(animate);
 });
 
 function reset() {
@@ -44,13 +55,17 @@ function reset() {
     particles = [];
     cancelAnimationFrame(mainAnimation);
     modal.style.display = 'flex';
-    clearInterval(enemyInterval);
+    enemySpawnRate = minimumEnemySpawnRate;
 }
 
-function animate() {
+function animate(currentTime) {
     mainAnimation = requestAnimationFrame(animate);
-
     clear();
+
+    const deltaTime = currentTime - lastTime;
+    lastTime = currentTime;
+
+    spawnEnemies(deltaTime);
 
     projectiles.forEach((entity, index) => {
         entity.update(c);
@@ -104,6 +119,10 @@ function animate() {
 
 function updateScore(points) {
     score += points;
+    if (score / 100 >= level) {
+        level++;
+        levelElement.textContent = level;
+    }
     scoreElement.textContent = score;
 }
 
@@ -112,17 +131,18 @@ function clear() {
     c.fillRect(0, 0, canvas.width, canvas.height);
 }
 
-function spawnEnemies() {
-    enemyInterval = setInterval(() => {
-        enemies.push(EnemyFactory.create(canvas, player));
-    }, 1000);
+function spawnEnemies(deltaTime) {
+    enemySpwanTimer -= deltaTime;
+    if (enemySpwanTimer > 0) return;
+    enemies.push(EnemyFactory.create(canvas, player, level));
+    enemySpwanTimer = enemySpawnRate;
 }
 
 function createParticles(enemy) {
     for (let i = 0; i < enemy.radius * 2; i++) {
-        particles.push(new Particle(enemy.x, enemy.y, Math.random() * 2 + 1, enemy.color, {
-            x: (Math.random() - 0.5) * (Math.random() * 6),
-            y: (Math.random() - 0.5) * (Math.random() * 6)
+        particles.push(new Particle(enemy.x, enemy.y, Math.random() * 2 + 0.5, enemy.color, {
+            x: (Math.random() - 0.5) * (Math.random() * 5),
+            y: (Math.random() - 0.5) * (Math.random() * 5)
         }));
     }
 }
