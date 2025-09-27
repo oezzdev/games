@@ -4,11 +4,11 @@ Guerra Espacial es un clásico juego de disparos espaciales estilo arcade desarr
 
 ## Características
 
-- **Disparo de Proyectiles**: Dispara proyectiles para destruir naves enemigas.
-- **Detección de Colisiones**: Detección precisa de colisiones para proyectiles, enemigos y el jugador.
-- **Retroalimentación Visual**: Disfruta de explosiones de partículas al impactar a los enemigos e indicaciones visuales de daño.
-- **Sistema de Puntuación**: Registra tu puntuación más alta a medida que progresas.
-- **Fin de Juego y Reinicio**: Pantalla intuitiva de fin de juego con opción de reinicio.
+- [x] **Disparo de Proyectiles**: Dispara proyectiles para destruir naves enemigas.
+- [x] **Detección de Colisiones**: Detección precisa de colisiones para proyectiles, enemigos y el jugador.
+- [x] **Retroalimentación Visual**: Disfruta de explosiones de partículas al impactar a los enemigos e indicaciones visuales de daño.
+- [x] **Sistema de Puntuación**: Registra tu puntuación más alta a medida que progresas.
+- [x] **Fin de Juego y Reinicio**: Pantalla intuitiva de fin de juego con opción de reinicio.
 
 ## Cómo jugar
 
