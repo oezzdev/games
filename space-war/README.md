@@ -33,7 +33,3 @@ Este juego se desarrolló como un ejercicio de aprendizaje en desarrollo de vide
 - [ ] Efectos de sonido y música de fondo
 - [ ] Persistencia de puntuaciones altas
 - [ ] Fondos más diversos
-
-## Licencia
-
-Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENCIA).

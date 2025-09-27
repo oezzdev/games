@@ -11,3 +11,7 @@
 
 3. **Juegos**
     - **[Space War](space-war)**
+
+## Licencia
+
+Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENSE)
