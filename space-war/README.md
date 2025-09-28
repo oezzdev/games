@@ -13,9 +13,9 @@ Guerra Espacial es un clásico juego de disparos espaciales estilo arcade desarr
 ## Cómo jugar
 
 1. **Visita la página**:
-https://ramiroegl.github.io/games/space-war
+https://oezzdev.github.io/games/space-war
 1. **Controles:**
-    - **Disparar**: `Click/Tap`
+    - **Disparar**: `clic/touch`
 
 ## Desarrollo
 
