@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamezz 🕹️</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Juegos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <a href="space-war/index.html">Guerra espacial</a>
+<body class="bg-gray-100 py-8">
+    <div class="container mx-auto px-4">
+        <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">Mis Juegos Favoritos</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <a href="space-war" class="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <img src="images/guerra-espacial.jpg" alt="Juego 1" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-gray-800">Guerra Galáctica 🌌</h2>
+                </div>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
