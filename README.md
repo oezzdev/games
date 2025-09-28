@@ -1,7 +1,7 @@
 # Repositorio de videojuegos creados con Canvas (HTML)
 
 1. **Página Web**
-    - https://ramiroegl.github.io/games
+    - https://oezzdev.github.io/games
 
 2. **Tecnologías**
     - HTML
